@@ -1,0 +1,2 @@
+# R fixtures are compared byte-for-byte (messages contain \n); never convert line endings
+tests/fixtures/** -text
