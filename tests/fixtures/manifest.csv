@@ -1,0 +1,423 @@
+"name","input","k","rowmax","colmax","maxp","rng_seed","warning","error","stdout"
+"khan_default","khan",10,0.5,0.8,1500,362436069,,,"Cluster size 2308 broken into 1406 902 
+Done cluster 1406 
+Done cluster 902 "
+"khan_knn_only","khan",10,0.5,0.8,2308,362436069,,,""
+"khan_k1","khan",1,0.5,0.8,1500,362436069,,,"Cluster size 2308 broken into 1406 902 
+Done cluster 1406 
+Done cluster 902 "
+"khan_k5_seed12345","khan",5,0.5,0.8,1500,12345,,,"Cluster size 2308 broken into 1380 928 
+Done cluster 1380 
+Done cluster 928 "
+"khan_negative_seed","khan",10,0.5,0.8,1000,-5,,,"Cluster size 2308 broken into 958 1350 
+Done cluster 958 
+Cluster size 1350 broken into 823 527 
+Done cluster 823 
+Done cluster 527 
+Done cluster 1350 "
+"khan_maxp200","khan",10,0.5,0.8,200,362436069,,,"Cluster size 2308 broken into 1406 902 
+Cluster size 1406 broken into 478 928 
+Cluster size 478 broken into 365 113 
+Cluster size 365 broken into 274 91 
+Cluster size 274 broken into 200 74 
+Done cluster 200 
+Done cluster 74 
+Done cluster 274 
+Done cluster 91 
+Done cluster 365 
+Done cluster 113 
+Done cluster 478 
+Cluster size 928 broken into 472 456 
+Cluster size 472 broken into 265 207 
+Cluster size 265 broken into 213 52 
+Cluster size 213 broken into 130 83 
+Done cluster 130 
+Done cluster 83 
+Done cluster 213 
+Done cluster 52 
+Done cluster 265 
+Cluster size 207 broken into 107 100 
+Done cluster 107 
+Done cluster 100 
+Done cluster 207 
+Done cluster 472 
+Cluster size 456 broken into 194 262 
+Done cluster 194 
+Cluster size 262 broken into 116 146 
+Done cluster 116 
+Done cluster 146 
+Done cluster 262 
+Done cluster 456 
+Done cluster 928 
+Done cluster 1406 
+Cluster size 902 broken into 302 600 
+Cluster size 302 broken into 102 200 
+Done cluster 102 
+Done cluster 200 
+Done cluster 302 
+Cluster size 600 broken into 333 267 
+Cluster size 333 broken into 168 165 
+Done cluster 168 
+Done cluster 165 
+Done cluster 333 
+Cluster size 267 broken into 87 180 
+Done cluster 87 
+Done cluster 180 
+Done cluster 267 
+Done cluster 600 
+Done cluster 902 "
+"khan_maxp50","khan",10,0.5,0.8,50,362436069,,,"Cluster size 2308 broken into 1406 902 
+Cluster size 1406 broken into 478 928 
+Cluster size 478 broken into 365 113 
+Cluster size 365 broken into 274 91 
+Cluster size 274 broken into 200 74 
+Cluster size 200 broken into 116 84 
+Cluster size 116 broken into 48 68 
+Done cluster 48 
+Cluster size 68 broken into 34 34 
+Done cluster 34 
+Done cluster 34 
+Done cluster 68 
+Done cluster 116 
+Cluster size 84 broken into 36 48 
+Done cluster 36 
+Done cluster 48 
+Done cluster 84 
+Done cluster 200 
+Cluster size 74 broken into 55 19 
+Cluster size 55 broken into 18 37 
+Done cluster 18 
+Done cluster 37 
+Done cluster 55 
+Done cluster 19 
+Done cluster 74 
+Done cluster 274 
+Cluster size 91 broken into 90 1 
+Cluster size 90 broken into 88 2 
+Cluster size 88 broken into 21 67 
+Done cluster 21 
+Cluster size 67 broken into 3 64 
+Done cluster 3 
+Cluster size 64 broken into 42 22 
+Done cluster 42 
+Done cluster 22 
+Done cluster 64 
+Done cluster 67 
+Done cluster 88 
+Done cluster 2 
+Done cluster 90 
+Done cluster 1 
+Done cluster 91 
+Done cluster 365 
+Cluster size 113 broken into 80 33 
+Cluster size 80 broken into 22 58 
+Done cluster 22 
+Cluster size 58 broken into 4 54 
+Done cluster 4 
+Cluster size 54 broken into 12 42 
+Done cluster 12 
+Done cluster 42 
+Done cluster 54 
+Done cluster 58 
+Done cluster 80 
+Done cluster 33 
+Done cluster 113 
+Done cluster 478 
+Cluster size 928 broken into 461 467 
+Cluster size 461 broken into 342 119 
+Cluster size 342 broken into 75 267 
+Cluster size 75 broken into 31 44 
+Done cluster 31 
+Done cluster 44 
+Done cluster 75 
+Cluster size 267 broken into 155 112 
+Cluster size 155 broken into 70 85 
+Cluster size 70 broken into 33 37 
+Done cluster 33 
+Done cluster 37 
+Done cluster 70 
+Cluster size 85 broken into 11 74 
+Done cluster 11 
+Cluster size 74 broken into 37 37 
+Done cluster 37 
+Done cluster 37 
+Done cluster 74 
+Done cluster 85 
+Done cluster 155 
+Cluster size 112 broken into 45 67 
+Done cluster 45 
+Cluster size 67 broken into 49 18 
+Done cluster 49 
+Done cluster 18 
+Done cluster 67 
+Done cluster 112 
+Done cluster 267 
+Done cluster 342 
+Cluster size 119 broken into 49 70 
+Done cluster 49 
+Cluster size 70 broken into 44 26 
+Done cluster 44 
+Done cluster 26 
+Done cluster 70 
+Done cluster 119 
+Done cluster 461 
+Cluster size 467 broken into 189 278 
+Cluster size 189 broken into 114 75 
+Cluster size 114 broken into 63 51 
+Cluster size 63 broken into 31 32 
+Done cluster 31 
+Done cluster 32 
+Done cluster 63 
+Cluster size 51 broken into 4 47 
+Done cluster 4 
+Done cluster 47 
+Done cluster 51 
+Done cluster 114 
+Cluster size 75 broken into 30 45 
+Done cluster 30 
+Done cluster 45 
+Done cluster 75 
+Done cluster 189 
+Cluster size 278 broken into 115 163 
+Cluster size 115 broken into 47 68 
+Done cluster 47 
+Cluster size 68 broken into 27 41 
+Done cluster 27 
+Done cluster 41 
+Done cluster 68 
+Done cluster 115 
+Cluster size 163 broken into 85 78 
+Cluster size 85 broken into 65 20 
+Cluster size 65 broken into 61 4 
+Cluster size 61 broken into 33 28 
+Done cluster 33 
+Done cluster 28 
+Done cluster 61 
+Done cluster 4 
+Done cluster 65 
+Done cluster 20 
+Done cluster 85 
+Cluster size 78 broken into 16 62 
+Done cluster 16 
+Cluster size 62 broken into 35 27 
+Done cluster 35 
+Done cluster 27 
+Done cluster 62 
+Done cluster 78 
+Done cluster 163 
+Done cluster 278 
+Done cluster 467 
+Done cluster 928 
+Done cluster 1406 
+Cluster size 902 broken into 596 306 
+Cluster size 596 broken into 63 533 
+Cluster size 63 broken into 53 10 
+Cluster size 53 broken into 21 32 
+Done cluster 21 
+Done cluster 32 
+Done cluster 53 
+Done cluster 10 
+Done cluster 63 
+Cluster size 533 broken into 368 165 
+Cluster size 368 broken into 222 146 
+Cluster size 222 broken into 106 116 
+Cluster size 106 broken into 3 103 
+Done cluster 3 
+Cluster size 103 broken into 47 56 
+Done cluster 47 
+Cluster size 56 broken into 27 29 
+Done cluster 27 
+Done cluster 29 
+Done cluster 56 
+Done cluster 103 
+Done cluster 106 
+Cluster size 116 broken into 57 59 
+Cluster size 57 broken into 32 25 
+Done cluster 32 
+Done cluster 25 
+Done cluster 57 
+Cluster size 59 broken into 20 39 
+Done cluster 20 
+Done cluster 39 
+Done cluster 59 
+Done cluster 116 
+Done cluster 222 
+Cluster size 146 broken into 51 95 
+Cluster size 51 broken into 33 18 
+Done cluster 33 
+Done cluster 18 
+Done cluster 51 
+Cluster size 95 broken into 11 84 
+Done cluster 11 
+Cluster size 84 broken into 67 17 
+Cluster size 67 broken into 27 40 
+Done cluster 27 
+Done cluster 40 
+Done cluster 67 
+Done cluster 17 
+Done cluster 84 
+Done cluster 95 
+Done cluster 146 
+Done cluster 368 
+Cluster size 165 broken into 84 81 
+Cluster size 84 broken into 53 31 
+Cluster size 53 broken into 17 36 
+Done cluster 17 
+Done cluster 36 
+Done cluster 53 
+Done cluster 31 
+Done cluster 84 
+Cluster size 81 broken into 48 33 
+Done cluster 48 
+Done cluster 33 
+Done cluster 81 
+Done cluster 165 
+Done cluster 533 
+Done cluster 596 
+Cluster size 306 broken into 99 207 
+Cluster size 99 broken into 41 58 
+Done cluster 41 
+Cluster size 58 broken into 29 29 
+Done cluster 29 
+Done cluster 29 
+Done cluster 58 
+Done cluster 99 
+Cluster size 207 broken into 82 125 
+Cluster size 82 broken into 44 38 
+Done cluster 44 
+Done cluster 38 
+Done cluster 82 
+Cluster size 125 broken into 29 96 
+Done cluster 29 
+Cluster size 96 broken into 62 34 
+Cluster size 62 broken into 40 22 
+Done cluster 40 
+Done cluster 22 
+Done cluster 62 
+Done cluster 34 
+Done cluster 96 
+Done cluster 125 
+Done cluster 207 
+Done cluster 306 
+Done cluster 902 "
+"khan_rowmax","khan",10,0.02,0.8,1500,362436069,"222 rows with more than 2 % entries missing;
+ mean imputation used for these rows",,"Cluster size 2086 broken into 1213 873 
+Done cluster 1213 
+Done cluster 873 "
+"khan_colmax_error","khan",10,0.5,0.001,1500,362436069,,"a column has more than 0 % missing values!",""
+"rand_heavy","rand_heavy",3,0.9,0.9,1500,362436069,"3 rows with more than 90 % entries missing;
+ mean imputation used for these rows",,""
+"rand_one_row_over_rowmax","rand_one_row_over_rowmax",5,0.5,0.8,1500,362436069,"1 rows with more than 50 % entries missing;
+ mean imputation used for these rows",,""
+"rand_rows_over_rowmax","rand_rows_over_rowmax",5,0.5,0.8,1500,362436069,"4 rows with more than 50 % entries missing;
+ mean imputation used for these rows",,""
+"dup_ties","dup_ties",4,0.5,0.8,1500,362436069,,,""
+"rand_split","rand_split",10,0.5,0.8,100,362436069,"1 rows with more than 50 % entries missing;
+ mean imputation used for these rows",,"Cluster size 499 broken into 249 250 
+Cluster size 249 broken into 128 121 
+Cluster size 128 broken into 74 54 
+Done cluster 74 
+Done cluster 54 
+Done cluster 128 
+Cluster size 121 broken into 65 56 
+Done cluster 65 
+Done cluster 56 
+Done cluster 121 
+Done cluster 249 
+Cluster size 250 broken into 148 102 
+Cluster size 148 broken into 87 61 
+Done cluster 87 
+Done cluster 61 
+Done cluster 148 
+Cluster size 102 broken into 59 43 
+Done cluster 59 
+Done cluster 43 
+Done cluster 102 
+Done cluster 250 "
+"rand_split_small_clusters","rand_split",15,0.5,0.8,30,362436069,"1 rows with more than 50 % entries missing;
+ mean imputation used for these rows",,"Cluster size 499 broken into 249 250 
+Cluster size 249 broken into 128 121 
+Cluster size 128 broken into 74 54 
+Cluster size 74 broken into 62 12 
+Cluster size 62 broken into 3 59 
+Done cluster 3 
+Cluster size 59 broken into 35 24 
+Cluster size 35 broken into 19 16 
+Done cluster 19 
+Done cluster 16 
+Done cluster 35 
+Done cluster 24 
+Done cluster 59 
+Done cluster 62 
+Done cluster 12 
+Done cluster 74 
+Cluster size 54 broken into 34 20 
+Cluster size 34 broken into 9 25 
+Done cluster 9 
+Done cluster 25 
+Done cluster 34 
+Done cluster 20 
+Done cluster 54 
+Done cluster 128 
+Cluster size 121 broken into 70 51 
+Cluster size 70 broken into 27 43 
+Done cluster 27 
+Cluster size 43 broken into 11 32 
+Done cluster 11 
+Cluster size 32 broken into 16 16 
+Done cluster 16 
+Done cluster 16 
+Done cluster 32 
+Done cluster 43 
+Done cluster 70 
+Cluster size 51 broken into 16 35 
+Done cluster 16 
+Cluster size 35 broken into 21 14 
+Done cluster 21 
+Done cluster 14 
+Done cluster 35 
+Done cluster 51 
+Done cluster 121 
+Done cluster 249 
+Cluster size 250 broken into 118 132 
+Cluster size 118 broken into 72 46 
+Cluster size 72 broken into 55 17 
+Cluster size 55 broken into 39 16 
+Cluster size 39 broken into 9 30 
+Done cluster 9 
+Done cluster 30 
+Done cluster 39 
+Done cluster 16 
+Done cluster 55 
+Done cluster 17 
+Done cluster 72 
+Cluster size 46 broken into 9 37 
+Done cluster 9 
+Cluster size 37 broken into 18 19 
+Done cluster 18 
+Done cluster 19 
+Done cluster 37 
+Done cluster 46 
+Done cluster 118 
+Cluster size 132 broken into 68 64 
+Cluster size 68 broken into 36 32 
+Cluster size 36 broken into 12 24 
+Done cluster 12 
+Done cluster 24 
+Done cluster 36 
+Cluster size 32 broken into 3 29 
+Done cluster 3 
+Done cluster 29 
+Done cluster 32 
+Done cluster 68 
+Cluster size 64 broken into 27 37 
+Done cluster 27 
+Cluster size 37 broken into 19 18 
+Done cluster 19 
+Done cluster 18 
+Done cluster 37 
+Done cluster 64 
+Done cluster 132 
+Done cluster 250 "
+"rand_all_na_column","rand_all_na_column",5,0.5,1,1500,362436069,,,""
+"rand_colmax_error","rand_colmax_error",10,0.5,0.8,1500,362436069,,"a column has more than 80 % missing values!",""

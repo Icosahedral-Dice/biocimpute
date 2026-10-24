@@ -1,0 +1,52 @@
+[project]
+name = "biocimpute"
+version = "0.1.0"
+description = "Imputation for microarray data: a Python port of Bioconductor's impute (KNN)"
+readme = "README.md"
+authors = [
+    { name = "Mingsen Wang", email = "mingsen.wang.sh@gmail.com" }
+]
+requires-python = ">=3.10"
+license = "GPL-2.0-only"
+license-files = ["LICENSE"]
+keywords = ["imputation", "knn", "microarray", "gene expression", "bioconductor"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+dependencies = [
+    "numba>=0.68.0",
+    "numpy>=2.2.6",
+]
+
+[project.urls]
+Homepage = "https://github.com/Icosahedral-Dice/biocimpute"
+Repository = "https://github.com/Icosahedral-Dice/biocimpute"
+Issues = "https://github.com/Icosahedral-Dice/biocimpute/issues"
+"Original R package" = "https://bioconductor.org/packages/release/bioc/html/impute.html"
+
+[project.optional-dependencies]
+pandas = [
+    "pandas>=2.3.3",
+]
+
+[build-system]
+requires = ["uv_build>=0.12.13,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pandas>=2.3.3",
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -218,3 +218,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# R reference library used to regenerate test fixtures
+tests/r/lib/
