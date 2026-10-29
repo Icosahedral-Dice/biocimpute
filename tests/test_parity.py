@@ -14,6 +14,8 @@ from biocimpute import impute_knn, load_khanmiss
 
 FIXTURES = Path(__file__).parent / "fixtures"
 
+pytestmark = pytest.mark.usefixtures("backend")
+
 
 def _read_manifest():
     with open(FIXTURES / "manifest.csv", newline="") as f:

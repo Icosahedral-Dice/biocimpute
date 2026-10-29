@@ -60,22 +60,36 @@ The one deliberate difference: when a block has `k` or fewer rows, R's
 Fortran reads past the end of its neighbor array (undefined behavior).
 biocimpute uses all other rows of the block as neighbors.
 
+## Backends
+
+The workhorse loops (distances, neighbor search, two-means) have two
+implementations that give identical results:
+
+- **rust** (default): compiled into the wheel; no extra dependencies.
+- **numba**: install `biocimpute[numba]`, then set `BIOCIMPUTE_BACKEND=numba`
+  before importing biocimpute.
+
 ## Layout
 
 The code follows the R package's structure:
 
 - `src/biocimpute/_impute.py`: `R/allknnimp.R`, one function per R function
-- `src/biocimpute/_kernels/`: `src/knnimpute.f`, ported to Numba. The
-  `_kernels` package is the only place a backend is imported, so another
-  backend (e.g. Rust) can be swapped in there.
+- `rust/`: `src/knnimpute.f`, ported to Rust (PyO3), built as
+  `biocimpute._kernels._rust`
+- `src/biocimpute/_kernels/_numba.py`: the same port in Numba
+- `src/biocimpute/_kernels/__init__.py`: picks the backend
 - `src/biocimpute/_rng.py`: R's default RNG and `sample()`
 - `reference/`: the original R and Fortran sources
 
 ## Development
 
+Needs a Rust toolchain ([rustup](https://rustup.rs)); `uv sync` builds the
+extension with maturin and rebuilds it when `rust/` changes.
+
 ```sh
 uv sync
-uv run pytest
+uv run pytest                                  # Python tests, both backends
+uv run cargo test --manifest-path rust/Cargo.toml
 ```
 
 To regenerate the R fixtures in `tests/fixtures` (needs R and gfortran):
