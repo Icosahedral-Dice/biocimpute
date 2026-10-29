@@ -1,13 +1,15 @@
 import numpy as np
+import pytest
 
 from biocimpute import _kernels
-from biocimpute._kernels import _numba
+
+pytestmark = pytest.mark.usefixtures("backend")
 
 
 def _porder(dist, kn):
     pos = np.full(kn, -1, dtype=np.int64)
     nndist = np.empty(kn)
-    _numba.porder(kn, np.asarray(dist, dtype=float), len(dist), pos, nndist)
+    _kernels._backend.porder(kn, np.asarray(dist, dtype=float), len(dist), pos, nndist)
     return pos, nndist
 
 
@@ -27,14 +29,14 @@ def test_porder_fills_only_available_slots():
     np.testing.assert_array_equal(pos[3:], [-1, -1])
 
 
-def test_misdis_averages_over_shared_columns():
+def test_misdis_averages_over_shared_columns(backend):
     x = np.array([[1.0, 2.0, 0.0], [3.0, 0.0, 5.0], [0.0, 0.0, 0.0]], order="F")
     imiss = np.array([[0, 0, 1], [0, 1, 0], [1, 1, 1]], dtype=np.int32, order="F")
     dis = np.empty(3)
     cnt = np.empty(3, dtype=np.int32)
-    _numba.misdis(x[0], x, imiss[0], imiss, dis, cnt)
+    backend.misdis(x[0].copy(), x, imiss[0].copy(), imiss, dis, cnt)
     np.testing.assert_array_equal(cnt, [2, 1, 0])
-    np.testing.assert_array_equal(dis, [0.0, 4.0, _numba.DISMAX])
+    np.testing.assert_array_equal(dis, [0.0, 4.0, backend.DISMAX])
 
 
 def test_misave_flags_columns_without_observations():
@@ -66,3 +68,9 @@ def test_twomis_separates_two_groups():
     assert sorted(nsize) == [20, 30]
     assert set(clust[: nsize[0], 0]) == set(range(20))
     assert 1 <= it <= 5
+
+
+def test_backend_selection():
+    assert _kernels._load("rust").__name__ == "biocimpute._kernels._rust"
+    with pytest.raises(ValueError, match="unknown BIOCIMPUTE_BACKEND"):
+        _kernels._load("fortran")

@@ -7,6 +7,8 @@ import pytest
 from biocimpute import ImputeKnnResult, impute_knn, load_khanmiss
 
 
+pytestmark = pytest.mark.usefixtures("backend")
+
 def test_khanmiss_layout():
     khan = load_khanmiss()
     assert khan.shape == (2309, 65)

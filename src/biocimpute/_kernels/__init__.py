@@ -1,13 +1,40 @@
 """Compiled workhorse routines, one wrapper per ``.Fortran()`` call in R.
 
 This module is the only place that imports a backend. The wrappers prepare
-column-major float64/int32 arrays and allocate outputs, so another backend
-(e.g. Rust) only has to provide the same in-place kernels.
+column-major float64/int32 arrays and allocate outputs; each backend provides
+the same in-place kernels:
+
+* ``rust`` (default): the compiled extension ``_rust``, built from ``rust/``.
+* ``numba``: ``_numba``, JIT-compiled; needs the ``numba`` extra.
+
+Set the environment variable ``BIOCIMPUTE_BACKEND`` before importing
+biocimpute to choose one.
 """
+
+import importlib
+import os
 
 import numpy as np
 
-from . import _numba as _backend
+BACKENDS = ("rust", "numba")
+
+
+def _load(name):
+    if name not in BACKENDS:
+        raise ValueError(
+            f"unknown BIOCIMPUTE_BACKEND {name!r}; expected one of {BACKENDS}"
+        )
+    try:
+        return importlib.import_module(f"._{name}", __name__)
+    except ImportError as e:
+        if name == "numba":
+            raise ImportError(
+                "the numba backend needs numba: pip install 'biocimpute[numba]'"
+            ) from e
+        raise
+
+
+_backend = _load(os.environ.get("BIOCIMPUTE_BACKEND", "rust"))
 
 
 def _as_x(x):

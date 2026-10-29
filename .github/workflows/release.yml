@@ -8,7 +8,7 @@ jobs:
   test:
     uses: ./.github/workflows/test.yml
 
-  build:
+  sdist:
     needs: test
     runs-on: ubuntu-latest
     steps:
@@ -21,14 +21,54 @@ jobs:
             echo "Tag $GITHUB_REF_NAME does not match project version $version" >&2
             exit 1
           fi
-      - run: uv build
+      - uses: PyO3/maturin-action@v1
+        with:
+          command: sdist
+          args: --out dist
       - uses: actions/upload-artifact@v7
         with:
-          name: dist
+          name: dist-sdist
+          path: dist/
+
+  # One abi3 wheel per platform covers every supported Python version.
+  wheels:
+    needs: sdist
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          - { os: ubuntu-latest, target: x86_64, native: true }
+          - { os: ubuntu-latest, target: aarch64, native: false }
+          - { os: macos-latest, target: aarch64, native: true }
+          - { os: macos-latest, target: x86_64, native: false }
+          - { os: windows-latest, target: x64, native: true }
+    steps:
+      - uses: actions/checkout@v7
+      - uses: PyO3/maturin-action@v1
+        with:
+          target: ${{ matrix.target }}
+          args: --release --out dist
+          manylinux: auto
+      - uses: astral-sh/setup-uv@v7
+        if: matrix.native
+      - name: Smoke-test the wheel
+        if: matrix.native
+        shell: bash
+        run: |
+          uv run --isolated --no-project --python 3.12 --with "$(ls dist/*.whl)" python -c "
+          import numpy as np
+          from biocimpute import impute_knn, _kernels
+          assert _kernels._backend.__name__ == 'biocimpute._kernels._rust'
+          out = impute_knn(np.array([[1.0, 2.0], [3.0, np.nan], [5.0, 6.0]]), k=10).data
+          assert out[1, 1] == 4.0, out
+          "
+      - uses: actions/upload-artifact@v7
+        with:
+          name: dist-${{ matrix.os }}-${{ matrix.target }}
           path: dist/
 
   publish-testpypi:
-    needs: build
+    needs: wheels
     runs-on: ubuntu-latest
     environment: testpypi
     permissions:
@@ -36,7 +76,8 @@ jobs:
     steps:
       - uses: actions/download-artifact@v8
         with:
-          name: dist
+          pattern: dist-*
+          merge-multiple: true
           path: dist/
       - uses: astral-sh/setup-uv@v7
       - run: uv publish --trusted-publishing always --publish-url https://test.pypi.org/legacy/
@@ -50,7 +91,8 @@ jobs:
     steps:
       - uses: actions/download-artifact@v8
         with:
-          name: dist
+          pattern: dist-*
+          merge-multiple: true
           path: dist/
       - uses: astral-sh/setup-uv@v7
       - run: uv publish --trusted-publishing always

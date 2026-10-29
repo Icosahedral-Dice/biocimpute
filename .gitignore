@@ -221,3 +221,8 @@ __marimo__/
 
 # R reference library used to regenerate test fixtures
 tests/r/lib/
+
+# Rust build output
+rust/target/
+src/biocimpute/_kernels/_rust*.so
+src/biocimpute/_kernels/_rust*.pyd
